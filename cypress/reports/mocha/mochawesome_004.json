@@ -1,0 +1,204 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-16T22:25:32.304Z",
+    "end": "2022-09-16T22:25:37.883Z",
+    "duration": 5579,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f7ba32e1-679b-4cdd-a0f4-28f9ce9bbb7d",
+      "title": "",
+      "fullFile": "cypress/integration/5.fluxoDeCompra.spec.js",
+      "file": "cypress/integration/5.fluxoDeCompra.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f13941a9-face-4041-83cc-60dd58136c8e",
+          "title": "Casos de teste sobre o fluxo de compra da API Serverest",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve postar um novo usuario com sucesso",
+              "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Deve postar um novo usuario com sucesso",
+              "timedOut": null,
+              "duration": 545,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.postarUsuarioValido().then(res => {\n  cy.contractValidation(res, '4.post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeUsuarioComSucesso(res);\n});",
+              "err": {},
+              "uuid": "71459971-d037-43b2-9db3-a952b1b9a609",
+              "parentUUID": "f13941a9-face-4041-83cc-60dd58136c8e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+              "title": "Logar com sucesso",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve buscar todos os produtos cadastrados",
+                  "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve buscar todos os produtos cadastrados",
+                  "timedOut": null,
+                  "duration": 1441,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarProdutos().then(res => {\n  cy.contractValidation(res, '7.get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(res);\n});",
+                  "err": {},
+                  "uuid": "a1a21037-15c9-4636-be40-9e6b96fd1d40",
+                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve adicionar um produto ao carrinho",
+                  "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve adicionar um produto ao carrinho",
+                  "timedOut": null,
+                  "duration": 1145,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarProdutoParaCarrinho();\ncy.get('@produtoCarrinho').then(produto => {\n  _serverest.default.adicionarProdutoAoCarrinho(produto).then(res => {\n    cy.contractValidation(res, '14.post-carrinhos', 201);\n    _validaServerest.default.validarCadastroDeCarrinhoComSucesso(res);\n  });\n});",
+                  "err": {},
+                  "uuid": "a54d779a-0a3f-4451-a48b-9f3ed78b147d",
+                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve buscar carrinho cadastrado",
+                  "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve buscar carrinho cadastrado",
+                  "timedOut": null,
+                  "duration": 1302,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarCarrinho().then(res => {\n  cy.contractValidation(res, '12.get-carrinhos', 200);\n  _validaServerest.default.validarBuscaDeCarrinho(res);\n});",
+                  "err": {},
+                  "uuid": "ca9545ba-8cdb-4025-83f2-ac2618ddf4db",
+                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve excluir um carrinho ao concluir compra",
+                  "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve excluir um carrinho ao concluir compra",
+                  "timedOut": null,
+                  "duration": 1098,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.concluirCompra().then(res => {\n  cy.contractValidation(res, '15.delete-carrinhos-concluir-compra', 200);\n  _validaServerest.default.validarExclusaoDeCarrinhoComSucesso(res);\n});",
+                  "err": {},
+                  "uuid": "c24605ce-ea0b-431a-b756-0d1490fe2b1a",
+                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a1a21037-15c9-4636-be40-9e6b96fd1d40",
+                "a54d779a-0a3f-4451-a48b-9f3ed78b147d",
+                "ca9545ba-8cdb-4025-83f2-ac2618ddf4db",
+                "c24605ce-ea0b-431a-b756-0d1490fe2b1a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4986,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "71459971-d037-43b2-9db3-a952b1b9a609"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 545,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

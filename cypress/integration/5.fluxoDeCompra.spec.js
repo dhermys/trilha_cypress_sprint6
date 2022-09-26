@@ -41,6 +41,16 @@ describe('Casos de teste sobre o fluxo de compra da API Serverest', () => {
             })
         })
 
+        it('Deve alterar carrinho', () => {
+            Serverest.buscarProdutoParaCarrinho()
+            cy.get('@produtoCarrinho').then(produto => {
+                Serverest.alterarProdutosNoCarrinho(produto).then(res => {
+                    cy.contractValidation(res, '14.post-carrinhos', 201)
+                    ValidaServerest.validarCadastroDeCarrinhoComSucesso(res)
+                })
+            })
+        })
+
         it('Deve buscar carrinho cadastrado', () => {
             Serverest.buscarCarrinho().then(res => {
                 cy.contractValidation(res, '12.get-carrinhos', 200)

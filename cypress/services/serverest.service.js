@@ -17,8 +17,8 @@ export default class Serverest {
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[0].email,
-                password: res.body.usuarios[0].password,
+                email: res.body.usuarios[1].email,
+                password: res.body.usuarios[1].password,
             }).as('usuarioLogin')
         })
     }
@@ -110,6 +110,17 @@ export default class Serverest {
     static adicionarProdutoAoCarrinho(produto) {
         return cy.request({
             method: 'POST',
+            url: URL_CARRINHOS,
+            body: produto,
+            auth: {
+                bearer: Cypress.env("bearer")
+            }
+        })
+    }
+
+    static alterarProdutosNoCarrinho(produto) {
+        return cy.request({
+            method: 'PUT',
             url: URL_CARRINHOS,
             body: produto,
             auth: {

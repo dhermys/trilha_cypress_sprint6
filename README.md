@@ -11,11 +11,12 @@ A automação de testes da API [ServeRest V2.26.2](https://serverest.dev/) com C
 
 A medida que o desenvolvimento da automação dos testes avance a aplicação deve cobrir todo o escopo definido no Plano de Testes:
 
-* Área administrativa (login do administrador, administração de usuários, movimentações de produtos e consulta de carrinhos e movimentações nas formas de pagamento);
-* Cadastro (consulta, criação, alteração e exclusão de novos usuários e administradores);
-* Login (atividades de autenticação de usuários e administradores);
-* Itens fora do fluxo de compra (busca e exclusão em usuários e listar carrinhos);
-* Fluxo de compra (login do usuário, cadastro e alteração em usuários, busca de produtos, criação e alteração de carrinhos e conclusão de compra através da exclusão de carrinho, cadastro e alteração de informações de entrega e lista de formas de pagamento).
+* Login (atividades de autenticação de usuários);
+* Cadastro de Usuários (consulta, criação, alteração e exclusão de usuários e administradores);
+* Cadastro de Produtos (consulta, criação, alteração e exclusão de produtos);
+* Cadastro de Carrinhos (consulta, criação, alteração e exclusão de carrinhos);
+* Fluxo de compra (login do usuário, cadastro e alteração em usuários, busca de produtos, criação e alteração de carrinhos e conclusão de compra através da exclusão de carrinho, cadastro e alteração de informações de entrega e lista de formas de pagamento)
+* Fluxo administrativo (login do administrador, administração de usuários, movimentações de produtos e consulta de carrinhos e movimentações nas formas de pagamento).
 
 ### A API ServeRest (https://serverest.dev/)
 

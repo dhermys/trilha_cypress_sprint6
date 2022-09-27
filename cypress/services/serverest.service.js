@@ -24,12 +24,29 @@ export default class Serverest {
         })
     }
 
+    static buscarUsuarioParaLoginComSenhaInvalida() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[1].email,
+                password: "senhainvalida",
+            }).as('usuarioLogin')
+        })
+    }
+
     static buscarAdministradorParaLogin() {
         cy.request(URL_ADMINISTRADORES).then(res => {
             cy.wrap({
                 email: res.body.usuarios[1].email,
                 password: res.body.usuarios[1].password,
             }).as('usuarioLogin')
+        })
+    }
+
+    static buscarIdUsuario() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                id: res.body.usuarios[1].id
+            }).as('idUsuario')
         })
     }
 
@@ -73,10 +90,7 @@ export default class Serverest {
     static deletarUsuarioCadastrado() {
         return cy.request({
             method: 'DELETE',
-            url: `${URL_PRODUTOS}/${Cypress.env('idUsuarioCadastrado')}`,
-            auth: {
-                bearer: Cypress.env("bearer")
-            }
+            url: `${URL_USUARIOS}/${Cypress.env('idUsuarioCadastrado')}`,
         })
     }
 
@@ -92,7 +106,7 @@ export default class Serverest {
             method: 'POST',
             url: URL_PRODUTOS,
             body: produto,
-            failOnStatusCode: true,
+            failOnStatusCode: false,
             auth: {
                 bearer: Cypress.env("bearer")
             }

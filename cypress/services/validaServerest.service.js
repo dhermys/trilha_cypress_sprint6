@@ -20,6 +20,13 @@ export default class ValidaServerest {
         Cypress.env('idUsuarioCadastrado', resposta.body._id)
     }
 
+    static validarCadastroDeUsuarioSemSucesso(resposta) {
+        expect(resposta.status).to.equal(400);
+        expect(resposta).to.be.a('object')
+        expect(resposta.body.message).to.be.a('string')
+        expect(resposta.body.message).to.be.eq('Este email já está sendo usado')
+    }
+
     static validarAlteracaoDeUsuarioComSucesso(resposta) {
         expect(resposta.status).to.equal(200)
         expect(resposta).to.be.a('object')
@@ -34,6 +41,8 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.a('string')
         expect(resposta.body.message).to.not.have.any.keys('Registro excluído com sucesso', 'Nenhum registro excluído')
     }
+
+
 
     static validarLoginComSucesso(resposta) {
         expect(resposta.status).to.equal(200);

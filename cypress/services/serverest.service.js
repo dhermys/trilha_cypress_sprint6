@@ -2,6 +2,7 @@
 import Factory from "../fixtures/factory"
 
 const URL_USUARIOS = '/usuarios'
+const URL_ADMINISTRADORES = '/usuarios?administrador=true'
 const URL_LOGIN = '/login'
 const URL_PRODUTOS = '/produtos'
 const URL_CARRINHOS = '/carrinhos'
@@ -16,6 +17,15 @@ export default class Serverest {
 
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[1].email,
+                password: res.body.usuarios[1].password,
+            }).as('usuarioLogin')
+        })
+    }
+
+    static buscarAdministradorParaLogin() {
+        cy.request(URL_ADMINISTRADORES).then(res => {
             cy.wrap({
                 email: res.body.usuarios[1].email,
                 password: res.body.usuarios[1].password,
@@ -48,6 +58,26 @@ export default class Serverest {
 
     static salvarBearer(resposta) {
         Cypress.env('bearer', resposta.body.authorization.slice(7))
+    }
+
+    static alterarUsuarioCadastrado() {
+        let usuario = Factory.gerarUsuarioValido()
+        return cy.request({
+            method: 'PUT',
+            url: `${URL_USUARIOS}/${Cypress.env('idUsuarioCadastrado')}`,
+            body: usuario,
+            failOnStatusCode: false,
+        })
+    }
+
+    static deletarUsuarioCadastrado() {
+        return cy.request({
+            method: 'DELETE',
+            url: `${URL_PRODUTOS}/${Cypress.env('idUsuarioCadastrado')}`,
+            auth: {
+                bearer: Cypress.env("bearer")
+            }
+        })
     }
 
     // Produtos //

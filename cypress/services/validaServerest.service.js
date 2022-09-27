@@ -20,6 +20,21 @@ export default class ValidaServerest {
         Cypress.env('idUsuarioCadastrado', resposta.body._id)
     }
 
+    static validarAlteracaoDeUsuarioComSucesso(resposta) {
+        expect(resposta.status).to.equal(200)
+        expect(resposta).to.be.a('object')
+        expect(resposta.body.message).to.be.a('string')
+        expect(resposta.body.message).to.be.eq('Registro alterado com sucesso')
+        Cypress.env('idUsuarioCadastrado', resposta.body._id)
+    }
+
+    static validarExclusaoDeUsuarioComSucesso(resposta) {
+        expect(resposta.status).to.equal(200)
+        expect(resposta).to.be.a('object')
+        expect(resposta.body.message).to.be.a('string')
+        expect(resposta.body.message).to.not.have.any.keys('Registro excluído com sucesso', 'Nenhum registro excluído')
+    }
+
     static validarLoginComSucesso(resposta) {
         expect(resposta.status).to.equal(200);
         expect(resposta).to.be.a('object')

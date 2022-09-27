@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 2,
-    "tests": 5,
-    "passes": 5,
+    "tests": 6,
+    "passes": 4,
     "pending": 0,
-    "failures": 0,
-    "start": "2022-09-16T22:25:32.304Z",
-    "end": "2022-09-16T22:25:37.883Z",
-    "duration": 5579,
-    "testsRegistered": 5,
-    "passPercent": 100,
+    "failures": 2,
+    "start": "2022-09-27T13:19:34.372Z",
+    "end": "2022-09-27T13:19:41.017Z",
+    "duration": 6645,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f7ba32e1-679b-4cdd-a0f4-28f9ce9bbb7d",
+      "uuid": "9284df7d-696c-4acb-a50b-cc1c779e708f",
       "title": "",
       "fullFile": "cypress/integration/5.fluxoDeCompra.spec.js",
       "file": "cypress/integration/5.fluxoDeCompra.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "f13941a9-face-4041-83cc-60dd58136c8e",
+          "uuid": "caa35b2e-d053-43a2-9909-d1300ec339e2",
           "title": "Casos de teste sobre o fluxo de compra da API Serverest",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve postar um novo usuario com sucesso",
               "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Deve postar um novo usuario com sucesso",
               "timedOut": null,
-              "duration": 545,
+              "duration": 443,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,15 +47,15 @@
               "context": null,
               "code": "_serverest.default.postarUsuarioValido().then(res => {\n  cy.contractValidation(res, '4.post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeUsuarioComSucesso(res);\n});",
               "err": {},
-              "uuid": "71459971-d037-43b2-9db3-a952b1b9a609",
-              "parentUUID": "f13941a9-face-4041-83cc-60dd58136c8e",
+              "uuid": "a72914dd-7879-4a71-819b-23e21a109da3",
+              "parentUUID": "caa35b2e-d053-43a2-9909-d1300ec339e2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+              "uuid": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
               "title": "Logar com sucesso",
               "fullFile": "",
               "file": "",
@@ -66,7 +66,7 @@
                   "title": "Deve buscar todos os produtos cadastrados",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve buscar todos os produtos cadastrados",
                   "timedOut": null,
-                  "duration": 1441,
+                  "duration": 848,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutos().then(res => {\n  cy.contractValidation(res, '7.get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(res);\n});",
                   "err": {},
-                  "uuid": "a1a21037-15c9-4636-be40-9e6b96fd1d40",
-                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "uuid": "3f138f07-4e95-468e-b033-e9066e8cbb07",
+                  "parentUUID": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -84,17 +84,43 @@
                   "title": "Deve adicionar um produto ao carrinho",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve adicionar um produto ao carrinho",
                   "timedOut": null,
-                  "duration": 1145,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
+                  "duration": 1553,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
                   "pending": false,
                   "context": null,
                   "code": "_serverest.default.buscarProdutoParaCarrinho();\ncy.get('@produtoCarrinho').then(produto => {\n  _serverest.default.adicionarProdutoAoCarrinho(produto).then(res => {\n    cy.contractValidation(res, '14.post-carrinhos', 201);\n    _validaServerest.default.validarCadastroDeCarrinhoComSucesso(res);\n  });\n});",
-                  "err": {},
-                  "uuid": "a54d779a-0a3f-4451-a48b-9f3ed78b147d",
-                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/carrinhos\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/carrinhos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.7.0 Chrome/100.0.4896.75 Electron/18.0.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbHRyYW5vMkBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY0Mjg0Nzc5LCJleHAiOjE2NjQyODUzNzl9.a1gi53F5ZN5NPkNpoOAe56FCoWAPf-GIXxUBXJ2Khss\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 62\n}\nBody: {\"produtos\":[{\"idProduto\":\"6ET5jPGr0Rwyg6QD\",\"quantidade\":1}]}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"access-control-allow-origin\": \"*\",\n  \"x-dns-prefetch-control\": \"off\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"strict-transport-security\": \"max-age=15552000; includeSubDomains\",\n  \"x-download-options\": \"noopen\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-moesif-transaction-id\": \"7f84a955-5ff7-4070-975c-b6064f6add77\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"x-cloud-trace-context\": \"d27725f27c67e13b48a292ee25fced3c\",\n  \"date\": \"Tue, 27 Sep 2022 13:19:40 GMT\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"200\"\n}\nBody: {\n  \"message\": \"Produto não possui quantidade suficiente\",\n  \"item\": {\n    \"idProduto\": \"6ET5jPGr0Rwyg6QD\",\n    \"quantidade\": 1,\n    \"quantidadeEstoque\": 0,\n    \"index\": 0\n  }\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/carrinhos\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/carrinhos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.7.0 Chrome/100.0.4896.75 Electron/18.0.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbHRyYW5vMkBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY0Mjg0Nzc5LCJleHAiOjE2NjQyODUzNzl9.a1gi53F5ZN5NPkNpoOAe56FCoWAPf-GIXxUBXJ2Khss\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 62\n}\nBody: {\"produtos\":[{\"idProduto\":\"6ET5jPGr0Rwyg6QD\",\"quantidade\":1}]}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"access-control-allow-origin\": \"*\",\n  \"x-dns-prefetch-control\": \"off\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"strict-transport-security\": \"max-age=15552000; includeSubDomains\",\n  \"x-download-options\": \"noopen\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-moesif-transaction-id\": \"7f84a955-5ff7-4070-975c-b6064f6add77\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"x-cloud-trace-context\": \"d27725f27c67e13b48a292ee25fced3c\",\n  \"date\": \"Tue, 27 Sep 2022 13:19:40 GMT\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"200\"\n}\nBody: {\n  \"message\": \"Produto não possui quantidade suficiente\",\n  \"item\": {\n    \"idProduto\": \"6ET5jPGr0Rwyg6QD\",\n    \"quantidade\": 1,\n    \"quantidadeEstoque\": 0,\n    \"index\": 0\n  }\n}\n\n\nhttps://on.cypress.io/request\n    at https://serverest.dev/__cypress/runner/cypress_runner.js:165434:80\n    at tryCatcher (https://serverest.dev/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://serverest.dev/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://serverest.dev/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://serverest.dev/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://serverest.dev/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (https://serverest.dev/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (https://serverest.dev/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Function.validarLoginComSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\5.fluxoDeCompra.spec.js:454:5)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\5.fluxoDeCompra.spec.js:196:36)",
+                    "diff": null
+                  },
+                  "uuid": "674ebb7f-209b-41ed-8c32-74edccc903ac",
+                  "parentUUID": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve alterar carrinho",
+                  "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve alterar carrinho",
+                  "timedOut": null,
+                  "duration": 1624,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarProdutoParaCarrinho();\ncy.get('@produtoCarrinho').then(produto => {\n  _serverest.default.alterarProdutosNoCarrinho(produto).then(res => {\n    cy.contractValidation(res, '14.post-carrinhos', 201);\n    _validaServerest.default.validarCadastroDeCarrinhoComSucesso(res);\n  });\n});",
+                  "err": {
+                    "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/carrinhos\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://serverest.dev/carrinhos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.7.0 Chrome/100.0.4896.75 Electron/18.0.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbHRyYW5vMkBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY0Mjg0NzgxLCJleHAiOjE2NjQyODUzODF9.JmhRudZ0McuOgMCj9QsCtYDl79a6kmYL_kQMxHzAHLs\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 62\n}\nBody: {\"produtos\":[{\"idProduto\":\"6ET5jPGr0Rwyg6QD\",\"quantidade\":1}]}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"access-control-allow-origin\": \"*\",\n  \"x-dns-prefetch-control\": \"off\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"strict-transport-security\": \"max-age=15552000; includeSubDomains\",\n  \"x-download-options\": \"noopen\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-moesif-transaction-id\": \"7da40624-78a8-4a8b-bc00-76517a480f77\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"x-cloud-trace-context\": \"14f2f42a986b7fb30b8626946fc89991\",\n  \"date\": \"Tue, 27 Sep 2022 13:19:42 GMT\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"147\"\n}\nBody: {\n  \"message\": \"Não é possível realizar PUT em /carrinhos. Acesse https://serverest.dev para ver as rotas disponíveis e como utilizá-las.\"\n}\n\n\nhttps://on.cypress.io/request",
+                    "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/carrinhos\n\nThe response we received from your web server was:\n\n  > 405: Method Not Allowed\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://serverest.dev/carrinhos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.7.0 Chrome/100.0.4896.75 Electron/18.0.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbHRyYW5vMkBxYS5jb20uYnIiLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY0Mjg0NzgxLCJleHAiOjE2NjQyODUzODF9.JmhRudZ0McuOgMCj9QsCtYDl79a6kmYL_kQMxHzAHLs\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 62\n}\nBody: {\"produtos\":[{\"idProduto\":\"6ET5jPGr0Rwyg6QD\",\"quantidade\":1}]}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 405 - Method Not Allowed\nHeaders: {\n  \"access-control-allow-origin\": \"*\",\n  \"x-dns-prefetch-control\": \"off\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"strict-transport-security\": \"max-age=15552000; includeSubDomains\",\n  \"x-download-options\": \"noopen\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-moesif-transaction-id\": \"7da40624-78a8-4a8b-bc00-76517a480f77\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"x-cloud-trace-context\": \"14f2f42a986b7fb30b8626946fc89991\",\n  \"date\": \"Tue, 27 Sep 2022 13:19:42 GMT\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"147\"\n}\nBody: {\n  \"message\": \"Não é possível realizar PUT em /carrinhos. Acesse https://serverest.dev para ver as rotas disponíveis e como utilizá-las.\"\n}\n\n\nhttps://on.cypress.io/request\n    at https://serverest.dev/__cypress/runner/cypress_runner.js:165434:80\n    at tryCatcher (https://serverest.dev/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://serverest.dev/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://serverest.dev/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://serverest.dev/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://serverest.dev/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (https://serverest.dev/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (https://serverest.dev/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Function.validarLoginComSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\5.fluxoDeCompra.spec.js:454:5)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\5.fluxoDeCompra.spec.js:196:36)",
+                    "diff": null
+                  },
+                  "uuid": "d475747b-ea81-45d1-af8d-9545f193c562",
+                  "parentUUID": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -102,7 +128,7 @@
                   "title": "Deve buscar carrinho cadastrado",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve buscar carrinho cadastrado",
                   "timedOut": null,
-                  "duration": 1302,
+                  "duration": 949,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -111,8 +137,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarCarrinho().then(res => {\n  cy.contractValidation(res, '12.get-carrinhos', 200);\n  _validaServerest.default.validarBuscaDeCarrinho(res);\n});",
                   "err": {},
-                  "uuid": "ca9545ba-8cdb-4025-83f2-ac2618ddf4db",
-                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "uuid": "92044b71-d614-4fd9-ad5b-302130c96483",
+                  "parentUUID": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
                   "isHook": false,
                   "skipped": false
                 },
@@ -120,7 +146,7 @@
                   "title": "Deve excluir um carrinho ao concluir compra",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest Logar com sucesso Deve excluir um carrinho ao concluir compra",
                   "timedOut": null,
-                  "duration": 1098,
+                  "duration": 880,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -129,35 +155,37 @@
                   "context": null,
                   "code": "_serverest.default.concluirCompra().then(res => {\n  cy.contractValidation(res, '15.delete-carrinhos-concluir-compra', 200);\n  _validaServerest.default.validarExclusaoDeCarrinhoComSucesso(res);\n});",
                   "err": {},
-                  "uuid": "c24605ce-ea0b-431a-b756-0d1490fe2b1a",
-                  "parentUUID": "1974f15e-556b-4a9d-860c-b73553dc66ec",
+                  "uuid": "75b64253-1b5e-42d9-8f4e-82be25dca719",
+                  "parentUUID": "9d63a728-487c-4471-95ef-aabaf9d23fa6",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "a1a21037-15c9-4636-be40-9e6b96fd1d40",
-                "a54d779a-0a3f-4451-a48b-9f3ed78b147d",
-                "ca9545ba-8cdb-4025-83f2-ac2618ddf4db",
-                "c24605ce-ea0b-431a-b756-0d1490fe2b1a"
+                "3f138f07-4e95-468e-b033-e9066e8cbb07",
+                "92044b71-d614-4fd9-ad5b-302130c96483",
+                "75b64253-1b5e-42d9-8f4e-82be25dca719"
               ],
-              "failures": [],
+              "failures": [
+                "674ebb7f-209b-41ed-8c32-74edccc903ac",
+                "d475747b-ea81-45d1-af8d-9545f193c562"
+              ],
               "pending": [],
               "skipped": [],
-              "duration": 4986,
+              "duration": 5854,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "71459971-d037-43b2-9db3-a952b1b9a609"
+            "a72914dd-7879-4a71-819b-23e21a109da3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 545,
+          "duration": 443,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -12,14 +12,10 @@ describe('Casos de teste sobre a rota /usuarios da API Serverest', () => {
         })
     })
 
-    it('CT20 - Validar rota de busca de usuário por id sem sucesso', () => {
-        Serverest.buscarIdUsuario()
-        cy.get('@idUsuario').then(usuario => {
-            Serverest.logar(usuario).then(res => {
-                cy.contractValidation(res, '1.login', 200)
-                ValidaServerest.validarLoginComSucesso(res)
-                Serverest.salvarBearer(res)
-            })
+    it('CT20 - Validar rota de busca de usuário por id com sucesso', () => {
+        Serverest.buscarUsuarioPorId().then(res => {
+            cy.contractValidation(res, '3.get-usuarios-by-id', 200)
+            ValidaServerest.validarBuscaDeUsuariosPorId(res)
         })
     })
 
@@ -41,6 +37,13 @@ describe('Casos de teste sobre a rota /usuarios da API Serverest', () => {
         Serverest.alterarUsuarioCadastrado().then(res => {
             cy.contractValidation(res, '6.put-usuarios-by-id', 200)
             ValidaServerest.validarAlteracaoDeUsuarioComSucesso(res)
+        })
+    })
+
+    it('CT31 - Validar rota de criação de usuário ao tentar alterar usuário inexistente', () => {
+        Serverest.cadastrarUsuarioAoTentarAlterar().then(res => {
+            cy.contractValidation(res, '6.put-usuarios-by-id', 201)
+            ValidaServerest.validarCadastroDeUsuarioComSucesso(res)
         })
     })
 

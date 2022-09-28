@@ -12,6 +12,20 @@ describe('Casos de teste sobre a rota /produtos da API Serverest', () => {
         })
     })
 
+    it('CT43 - Validar rota de busca de produtos por id com sucesso', () => {
+        Serverest.buscarProdutoPorId().then(res => {
+            cy.contractValidation(res, '8.get-produtos-by-id', 200)
+            ValidaServerest.validarBuscaDeProdutosPorId(res)
+        })
+    })
+
+    it('CT44 - Validar rota de busca de produtos por id sem sucesso', () => {
+        Serverest.buscarProdutoPorIdInexistente().then(res => {
+            cy.contractValidation(res, '8.get-produtos-by-id', 400)
+            ValidaServerest.validarBuscaDeProdutosPorIdSemSucesso(res)
+        })
+    })
+
     context('CT01 - Validar rota de login com sucesso', () => {
         beforeEach('Logar', () => {
             Serverest.buscarAdministradorParaLogin()

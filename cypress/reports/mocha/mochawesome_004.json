@@ -5,9 +5,9 @@
     "passes": 5,
     "pending": 0,
     "failures": 0,
-    "start": "2022-09-27T21:37:52.027Z",
-    "end": "2022-09-27T21:37:58.166Z",
-    "duration": 6139,
+    "start": "2022-09-28T01:48:53.486Z",
+    "end": "2022-09-28T01:48:58.658Z",
+    "duration": 5172,
     "testsRegistered": 5,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "622ce327-d05d-41cd-9a6c-53479fb1e423",
+      "uuid": "0c9282e7-bf89-48c8-b218-1d092c366fb2",
       "title": "",
       "fullFile": "cypress/integration/5.fluxoDeCompra.spec.js",
       "file": "cypress/integration/5.fluxoDeCompra.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "aaeca817-a02f-4aa6-9958-9c203a961562",
+          "uuid": "759ae41b-281c-407f-a4fe-c080a2d52fbe",
           "title": "Casos de teste sobre o fluxo de compra da API Serverest",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "CT23 - Validar rota de criação de usuário com sucesso",
               "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest CT23 - Validar rota de criação de usuário com sucesso",
               "timedOut": null,
-              "duration": 419,
+              "duration": 402,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,15 +47,15 @@
               "context": null,
               "code": "_serverest.default.postarUsuarioValido().then(res => {\n  cy.contractValidation(res, '4.post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeUsuarioComSucesso(res);\n});",
               "err": {},
-              "uuid": "0dce83b9-f600-40b2-8155-7124e9ec1680",
-              "parentUUID": "aaeca817-a02f-4aa6-9958-9c203a961562",
+              "uuid": "e03625b6-e71c-44e2-a21b-fa0936e7cf30",
+              "parentUUID": "759ae41b-281c-407f-a4fe-c080a2d52fbe",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "f085d664-ca15-4a19-a453-9e2608f8a100",
+              "uuid": "0a6e41ec-fcd2-493c-aa61-90db921c7fed",
               "title": "CT01 - Validar rota de login com sucesso",
               "fullFile": "",
               "file": "",
@@ -66,7 +66,7 @@
                   "title": "CT42 - Validar rota de lista de produtos com sucesso",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest CT01 - Validar rota de login com sucesso CT42 - Validar rota de lista de produtos com sucesso",
                   "timedOut": null,
-                  "duration": 1765,
+                  "duration": 1056,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutos().then(res => {\n  cy.contractValidation(res, '7.get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(res);\n});",
                   "err": {},
-                  "uuid": "c06e25fb-cee8-43e3-9fbe-d020761c20fa",
-                  "parentUUID": "f085d664-ca15-4a19-a453-9e2608f8a100",
+                  "uuid": "95feaad0-891e-4353-a623-9362e028529c",
+                  "parentUUID": "0a6e41ec-fcd2-493c-aa61-90db921c7fed",
                   "isHook": false,
                   "skipped": false
                 },
@@ -84,7 +84,7 @@
                   "title": "CT73 - Validar rota de criação de carrinho com sucesso",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest CT01 - Validar rota de login com sucesso CT73 - Validar rota de criação de carrinho com sucesso",
                   "timedOut": null,
-                  "duration": 1836,
+                  "duration": 1335,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -93,8 +93,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutoParaCarrinho();\ncy.get('@produtoCarrinho').then(produto => {\n  _serverest.default.adicionarProdutoAoCarrinho(produto).then(res => {\n    cy.contractValidation(res, '14.post-carrinhos', 201);\n    _validaServerest.default.validarCadastroDeCarrinhoComSucesso(res);\n  });\n});",
                   "err": {},
-                  "uuid": "e9b3c657-d414-42fe-ade3-0db50b69ae9c",
-                  "parentUUID": "f085d664-ca15-4a19-a453-9e2608f8a100",
+                  "uuid": "e713a98e-8da4-4976-bfd2-b3bf8688012d",
+                  "parentUUID": "0a6e41ec-fcd2-493c-aa61-90db921c7fed",
                   "isHook": false,
                   "skipped": false
                 },
@@ -102,7 +102,7 @@
                   "title": "CT68 - Validar rota de lista de carrinhos",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest CT01 - Validar rota de login com sucesso CT68 - Validar rota de lista de carrinhos",
                   "timedOut": null,
-                  "duration": 1081,
+                  "duration": 1440,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -111,8 +111,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarCarrinho().then(res => {\n  cy.contractValidation(res, '12.get-carrinhos', 200);\n  _validaServerest.default.validarBuscaDeCarrinho(res);\n});",
                   "err": {},
-                  "uuid": "af79d15e-3a0f-49e1-8f7a-2e5c8295cfbf",
-                  "parentUUID": "f085d664-ca15-4a19-a453-9e2608f8a100",
+                  "uuid": "94a5ec05-498c-4142-862b-4f775402bcd6",
+                  "parentUUID": "0a6e41ec-fcd2-493c-aa61-90db921c7fed",
                   "isHook": false,
                   "skipped": false
                 },
@@ -120,7 +120,7 @@
                   "title": "CT84 - Validar rota de exclusão de carrinho ao concluir compra",
                   "fullTitle": "Casos de teste sobre o fluxo de compra da API Serverest CT01 - Validar rota de login com sucesso CT84 - Validar rota de exclusão de carrinho ao concluir compra",
                   "timedOut": null,
-                  "duration": 993,
+                  "duration": 853,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -129,35 +129,35 @@
                   "context": null,
                   "code": "_serverest.default.concluirCompra().then(res => {\n  cy.contractValidation(res, '15.delete-carrinhos-concluir-compra', 200);\n  _validaServerest.default.validarExclusaoDeCarrinhoComSucesso(res);\n});",
                   "err": {},
-                  "uuid": "67dfcb9b-1425-4101-8c20-2a6247ed25ce",
-                  "parentUUID": "f085d664-ca15-4a19-a453-9e2608f8a100",
+                  "uuid": "1e70d3fc-bbe5-4894-9101-8328b7b030aa",
+                  "parentUUID": "0a6e41ec-fcd2-493c-aa61-90db921c7fed",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "c06e25fb-cee8-43e3-9fbe-d020761c20fa",
-                "e9b3c657-d414-42fe-ade3-0db50b69ae9c",
-                "af79d15e-3a0f-49e1-8f7a-2e5c8295cfbf",
-                "67dfcb9b-1425-4101-8c20-2a6247ed25ce"
+                "95feaad0-891e-4353-a623-9362e028529c",
+                "e713a98e-8da4-4976-bfd2-b3bf8688012d",
+                "94a5ec05-498c-4142-862b-4f775402bcd6",
+                "1e70d3fc-bbe5-4894-9101-8328b7b030aa"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 5675,
+              "duration": 4684,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "0dce83b9-f600-40b2-8155-7124e9ec1680"
+            "e03625b6-e71c-44e2-a21b-fa0936e7cf30"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 419,
+          "duration": 402,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

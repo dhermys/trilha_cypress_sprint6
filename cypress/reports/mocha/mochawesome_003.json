@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2022-09-27T21:37:39.751Z",
-    "end": "2022-09-27T21:37:43.630Z",
-    "duration": 3879,
+    "start": "2022-09-28T01:48:41.482Z",
+    "end": "2022-09-28T01:48:44.623Z",
+    "duration": 3141,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1b3b70ad-eb9e-43c6-894f-4b1c472496db",
+      "uuid": "f0535ead-cc97-483d-98a1-78e2802c2677",
       "title": "",
       "fullFile": "cypress/integration/4.cadastroCarrinhos.spec.js",
       "file": "cypress/integration/4.cadastroCarrinhos.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ad86992e-3ac8-4faf-9c70-48df00d2d081",
+          "uuid": "592d8a3e-f2ab-4cb0-a228-3a0b85503503",
           "title": "Casos de teste sobre a rota /carrinhos da API Serverest",
           "fullFile": "",
           "file": "",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "8af3a03f-b531-4d6c-8037-9e2180fe91ae",
+              "uuid": "92ceefb2-dd5c-4747-8545-f518acfd77b7",
               "title": "CT01 - Validar rota de login com sucesso",
               "fullFile": "",
               "file": "",
@@ -47,7 +47,7 @@
                   "title": "CT73 - Validar rota de criação de carrinho com sucesso",
                   "fullTitle": "Casos de teste sobre a rota /carrinhos da API Serverest CT01 - Validar rota de login com sucesso CT73 - Validar rota de criação de carrinho com sucesso",
                   "timedOut": null,
-                  "duration": 1443,
+                  "duration": 1277,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -56,8 +56,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutoParaCarrinho();\ncy.get('@produtoCarrinho').then(produto => {\n  _serverest.default.adicionarProdutoAoCarrinho(produto).then(res => {\n    cy.contractValidation(res, '14.post-carrinhos', 201);\n    _validaServerest.default.validarCadastroDeCarrinhoComSucesso(res);\n  });\n});",
                   "err": {},
-                  "uuid": "6379f285-9fbd-4a97-9ecd-eccf05e7c12d",
-                  "parentUUID": "8af3a03f-b531-4d6c-8037-9e2180fe91ae",
+                  "uuid": "ca18f0f5-4e73-4513-8030-7520ef315609",
+                  "parentUUID": "92ceefb2-dd5c-4747-8545-f518acfd77b7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -65,7 +65,7 @@
                   "title": "CT68 - Validar rota de lista de carrinhos",
                   "fullTitle": "Casos de teste sobre a rota /carrinhos da API Serverest CT01 - Validar rota de login com sucesso CT68 - Validar rota de lista de carrinhos",
                   "timedOut": null,
-                  "duration": 1143,
+                  "duration": 859,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -74,8 +74,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarCarrinho().then(res => {\n  cy.contractValidation(res, '12.get-carrinhos', 200);\n  _validaServerest.default.validarBuscaDeCarrinho(res);\n});",
                   "err": {},
-                  "uuid": "9d4119c6-d770-4d69-972b-e0041cc31e08",
-                  "parentUUID": "8af3a03f-b531-4d6c-8037-9e2180fe91ae",
+                  "uuid": "c2240f6b-c890-47ff-8fea-c538cec6bda2",
+                  "parentUUID": "92ceefb2-dd5c-4747-8545-f518acfd77b7",
                   "isHook": false,
                   "skipped": false
                 },
@@ -83,7 +83,7 @@
                   "title": "CT84 - Validar rota de exclusão de carrinho ao concluir compra",
                   "fullTitle": "Casos de teste sobre a rota /carrinhos da API Serverest CT01 - Validar rota de login com sucesso CT84 - Validar rota de exclusão de carrinho ao concluir compra",
                   "timedOut": null,
-                  "duration": 1252,
+                  "duration": 942,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -92,22 +92,22 @@
                   "context": null,
                   "code": "_serverest.default.concluirCompra().then(res => {\n  cy.contractValidation(res, '15.delete-carrinhos-concluir-compra', 200);\n  _validaServerest.default.validarExclusaoDeCarrinhoComSucesso(res);\n});",
                   "err": {},
-                  "uuid": "652ae9a2-5b95-433a-ac48-a140d7acbb9e",
-                  "parentUUID": "8af3a03f-b531-4d6c-8037-9e2180fe91ae",
+                  "uuid": "9438e4cd-37d9-4f9c-965e-6ab46f7a4cd3",
+                  "parentUUID": "92ceefb2-dd5c-4747-8545-f518acfd77b7",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "6379f285-9fbd-4a97-9ecd-eccf05e7c12d",
-                "9d4119c6-d770-4d69-972b-e0041cc31e08",
-                "652ae9a2-5b95-433a-ac48-a140d7acbb9e"
+                "ca18f0f5-4e73-4513-8030-7520ef315609",
+                "c2240f6b-c890-47ff-8fea-c538cec6bda2",
+                "9438e4cd-37d9-4f9c-965e-6ab46f7a4cd3"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 3838,
+              "duration": 3078,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000

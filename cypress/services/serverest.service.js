@@ -15,6 +15,13 @@ export default class Serverest {
         return cy.rest('GET', URL_USUARIOS)
     }
 
+    static buscarUsuarioPorId() {
+        return cy.request({
+            method: 'GET',
+            url: `${URL_USUARIOS}/${Cypress.env('idUsuarioBuscado')}`,
+        })
+    }
+
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
@@ -39,14 +46,6 @@ export default class Serverest {
                 email: res.body.usuarios[1].email,
                 password: res.body.usuarios[1].password,
             }).as('usuarioLogin')
-        })
-    }
-
-    static buscarIdUsuario() {
-        cy.request(URL_USUARIOS).then(res => {
-            cy.wrap({
-                id: res.body.usuarios[1].id
-            }).as('idUsuario')
         })
     }
 
@@ -87,6 +86,16 @@ export default class Serverest {
         })
     }
 
+    static cadastrarUsuarioAoTentarAlterar() {
+        let usuario = Factory.gerarUsuarioValido()
+        return cy.request({
+            method: 'PUT',
+            url: `${URL_USUARIOS}/${'idNaoEncontrado'}`,
+            body: usuario,
+            failOnStatusCode: false,
+        })
+    }
+
     static deletarUsuarioCadastrado() {
         return cy.request({
             method: 'DELETE',
@@ -98,6 +107,21 @@ export default class Serverest {
 
     static buscarProdutos() {
         return cy.rest('GET', URL_PRODUTOS)
+    }
+
+    static buscarProdutoPorId() {
+        return cy.request({
+            method: 'GET',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoBuscado')}`,
+        })
+    }
+
+    static buscarProdutoPorIdInexistente() {
+        return cy.request({
+            method: 'GET',
+            url: `${URL_PRODUTOS}/${'idInexistente'}`,
+            failOnStatusCode: false
+        })
     }
 
     static cadastrarProdutoComSucesso() {

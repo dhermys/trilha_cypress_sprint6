@@ -9,6 +9,17 @@ export default class ValidaServerest {
     static validarBuscaDeUsuarios(resposta) {
         expect(resposta.status).to.equal(200);
         expect(resposta.body.quantidade).to.be.greaterThan(5)
+        Cypress.env('idUsuarioBuscado', resposta.body.usuarios[1]._id)
+    }
+
+    static validarBuscaDeUsuariosPorId(resposta) {
+        expect(resposta.status).to.equal(200);
+        expect(resposta).to.be.a('object')
+        expect(resposta.body).to.haveOwnProperty('nome')
+        expect(resposta.body).to.haveOwnProperty('email')
+        expect(resposta.body).to.haveOwnProperty('password')
+        expect(resposta.body).to.haveOwnProperty('administrador')
+        expect(resposta.body).to.haveOwnProperty('_id')
     }
 
     static validarCadastroDeUsuarioComSucesso(resposta) {
@@ -32,7 +43,7 @@ export default class ValidaServerest {
         expect(resposta).to.be.a('object')
         expect(resposta.body.message).to.be.a('string')
         expect(resposta.body.message).to.be.eq('Registro alterado com sucesso')
-        Cypress.env('idUsuarioCadastrado', resposta.body._id)
+        Cypress.env('idUsuarioAlterado', resposta.body._id)
     }
 
     static validarExclusaoDeUsuarioComSucesso(resposta) {
@@ -65,6 +76,24 @@ export default class ValidaServerest {
         expect(resposta.body.produtos[0]).to.haveOwnProperty('nome')
         expect(resposta.body.produtos[0]).to.haveOwnProperty('preco')
         expect(resposta.body.produtos[0]).to.haveOwnProperty('descricao')
+        Cypress.env('idProdutoBuscado', resposta.body.produtos[1]._id)
+    }
+
+    static validarBuscaDeProdutosPorId(resposta) {
+        expect(resposta.status).to.equal(200);
+        expect(resposta).to.be.a('object')
+        expect(resposta.body).to.haveOwnProperty('nome')
+        expect(resposta.body).to.haveOwnProperty('preco')
+        expect(resposta.body).to.haveOwnProperty('descricao')
+        expect(resposta.body).to.haveOwnProperty('quantidade')
+        expect(resposta.body).to.haveOwnProperty('_id')
+    }
+
+    static validarBuscaDeProdutosPorIdSemSucesso(resposta) {
+        expect(resposta.status).to.equal(400);
+        expect(resposta).to.be.a('object')
+        expect(resposta.body.message).to.be.a('string')
+        expect(resposta.body.message).to.be.eq('Produto não encontrado')
     }
 
     static validarCadastroDeProdutoComSucesso(resposta) {
